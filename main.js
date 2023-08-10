@@ -79,19 +79,57 @@ async function fetchAndRenderEvents() {
 
     if (eventData !== null) {
       const eventsContainer = document.querySelector('.events');
+      console.log(eventsContainer);
       eventsContainer.innerHTML = ''; // Clear existing content
 
       eventData.forEach((eventDataItem) => {
         const eventCard = createEventCard(eventDataItem);
         console.log(eventCard);
-        const input = document.querySelector('.inpTick');
-        console.log(input);
-        // input.addEventListener('blur',()=>{
-        //   if(!input.value){
-        //     input.value=0;
-        //   }
-        //   console.log("aaa");
-        // });
+        
+        const addToCartBtn = eventCard.querySelector('.action');
+        const input = eventCard.querySelector('.nr-tickets'); 
+        input.addEventListener('blur', () => {
+          if (!input.value) {
+          input.value = 0;
+        }
+       });
+
+       input.addEventListener('input',() =>{
+        const quantity = parseInt(input.value);
+        if(quantity > 0){
+          addToCartBtn.disabled = false;
+        }else{
+          addToCartBtn.disabled = true;
+        }
+       });
+
+       const increaseBtn = eventCard.querySelector('.btn-plus');
+       increaseBtn.addEventListener('click',() =>{
+        const quantity = parseInt(input.value);
+        if(quantity > 0){
+          addToCartBtn.disabled = false;
+        }else{
+          addToCartBtn.disabled = true;
+        }
+       });
+
+       const decreaseBtn = eventCard.querySelector('.btn-minus');
+       decreaseBtn.addEventListener('click',() =>{
+        const quantity = parseInt(input.value);
+        if(quantity > 0){
+          addToCartBtn.disabled = false;
+        }else{
+          addToCartBtn.disabled = true;
+        }
+       });
+
+       addToCartBtn.addEventListener('click', ()=>{
+         const ticketNr = eventCard.querySelector('.nr-tickets');
+         const ticketType = eventCard.querySelector('#ticketType');
+
+        handleAddToCart(eventCard, eventData.eventId, ticketNr, input, ticketType);
+
+       });
         eventsContainer.appendChild(eventCard);
       });
     } else {
@@ -116,22 +154,19 @@ const imagePaths = [
   './src/assets/ec.jpg',
   './src/assets/footbal.jpg',
   './src/assets/wine.jpg'
-  // Add more image paths as needed
 ];
 
 let imageIndex = 0;
 
 function createEventCard(eventData) {
+
   const eventCard = document.createElement('div');
   eventCard.classList.add('event-card'); 
 
-  console.log(eventData);
-
   const categoriesOptions = eventData.ticketCategoriesForEvent.map(
-    (ticketCategory) => `<option value=${ticketCategory.ticketCategoryID}>${ticketCategory.description}</option>`
+    (ticketCategory) => `<option value=${ticketCategory.ticketCategoryId}>${ticketCategory.description}</option>`
   );
 
- 
   const contentMarkup = `
     <div class="eventss>
       <div class="eventt">
@@ -143,22 +178,47 @@ function createEventCard(eventData) {
           <p class = "event-location">${eventData.venue.location}</p>
           <div class="dropdown">
             <h2 class="chooseTicket">Choose Ticket Type:</h2>
-            <select id="ticketType" name="ticketType">${categoriesOptions.join('\n')}</select>
+            <select id="ticketType" class="tickCat" name="ticketType">${categoriesOptions.join('\n')}</select>
           </div>
           <div class="quantity">
-            <button onclick="document.getElementById('inpTick').stepDown()">-</button>
-            <input id="inpTick" type="number" class="nr-tickets" value="0">
-            <button onclick="document.getElementById('inpTick').stepUp()">+</button>
+            <button class="btn-minus" onclick="document.getElementById('inpTick').stepDown()">-</button>
+            <input id="inpTick" type="number" min=0 class="nr-tickets" value="0">
+            <button class="btn-plus" onclick="document.getElementById('inpTick').stepUp()">+</button>
           </div>
           <button class="action">Buy Now</button>
         </div>       
       </div>
     </div>
   `;
-  eventCard.innerHTML = contentMarkup;
-  imageIndex++;
 
+  eventCard.innerHTML = contentMarkup;  
+  imageIndex++;
   return eventCard;
+}
+
+//POST
+const handleAddToCart = (eventCard, eventID, nrTickets, input, ticketType) => {
+  
+  const selectedType = ticketType.value;
+  console.log(selectedType);
+  const numberOfTicketss= nrTickets.value;
+  if(parseInt(numberOfTicketss)){
+    fetch(`http://localhost:8080/orders`, {
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+      },
+      body:JSON.stringify({
+        eventId:+eventID,
+        ticketCategoryId:+selectedType,
+        numberOfTickets:+numberOfTicketss,
+      })
+    });
+
+    input.value = 0;
+    const ticketType = eventCard.querySelector('#ticketType');
+    ticketType.selectedIndex = 0;  
+  }
 }
 
 function renderHomePage() {
