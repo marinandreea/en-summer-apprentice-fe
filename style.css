@@ -1,0 +1,129 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-image: url('./src/assets/backgroundd.jpg');
+  background-size: cover; /* Adjust to your preference */
+  background-position: center; /* Adjust to your preference */
+  background-repeat: no-repeat; /* Adjust to your preference */
+}
+
+.events {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+h1 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #de411b;
+}
+
+.events .event {
+  width: 300px;
+  border: 1px solid #ebf1f6;
+  box-shadow: 0 0 2px 0 rgba(145,158,171,.2), 0 12px 24px -4px rgba(145,158,171,.12);
+  
+}
+
+.event-title {
+  color: #000000
+}
+
+.event-img {
+  height: 150px;
+}
+
+#ticketType {
+  width: 100%;
+}
+
+.actions {
+  flex-wrap: wrap;
+}
+
+.quantity {
+  margin: 12px auto;
+}
+
+#page-header {
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+}
+
+.link-item {
+  color: #de411b
+}
+
+.logo {
+  height: 50px;
+  padding: 6px;
+}
+
+.add-btn {
+  background-color: #de411b;
+}
+
+.add-to-cart-btn {
+  background: #de411b;
+  margin: 22px auto;
+  display: block;
+  width: 100%;
+}
+
+.main-content-component {
+  margin-bottom: 40px;
+}
+
+.h2{
+  text-align: center;
+  margin-bottom: 5rem;
+  font-size: 4rem;
+}
+
+.eventss{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.eventt{
+  overflow: hidden;
+  background: #ffffff;
+  color:#de411b;
+  text-align: center;
+  width: 240px;
+  height: 340px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.2rem;
+  margin:2rem;
+}
+
+eventt:hover img{
+  scale:1.1;
+
+}
+
+eventt:hover img{
+  box-shadow: 5px 15px 25px #eeeeee;
+
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
