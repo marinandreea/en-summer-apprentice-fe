@@ -1,10 +1,19 @@
 body {
   font-family: 'Roboto', sans-serif;
-  background-image: url('./src/assets/backgroundd.jpg');
+  background-image: url('./src/assets/images.jpg'); 
   background-size: cover; /* Adjust to your preference */
   background-position: center; /* Adjust to your preference */
   background-repeat: no-repeat; /* Adjust to your preference */
+  background-color: #ddd;
+  position: relative;
+  
 }
+
+/* p{
+  color: white;
+ } */
+
+
 
 .events {
   justify-content: center;
@@ -23,6 +32,7 @@ h1 {
   width: 300px;
   border: 1px solid #ebf1f6;
   box-shadow: 0 0 2px 0 rgba(145,158,171,.2), 0 12px 24px -4px rgba(145,158,171,.12);
+  position: absolute;
   
 }
 
@@ -87,6 +97,7 @@ h1 {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  position: absolute;
 }
 
 .eventt{
@@ -125,5 +136,16 @@ eventt:hover img{
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+}
+
+.mess{
+  color: #fff;
+  justify-content: center;
+  text-align: center;
+}
+
+.search{
+  display: flex;
+  justify-content: center;
 }
 

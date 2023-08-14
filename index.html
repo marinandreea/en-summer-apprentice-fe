@@ -6,6 +6,13 @@
 		<link rel="stylesheet" href="./src/styles.css" />
 		<link rel="stylesheet" href="./style.css" />
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&amp;display=swap" rel="stylesheet">
+		<link rel="stylesheet"
+		 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+			integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+			crossorigin="anonymous" 
+			referrerpolicy="no-referrer" 
+			/>
+		<link href="node_modules/toastr/build/toastr.min.css" rel="stylesheet">
 		<title>Ticket Management</title>
 </head>
 	<body>
@@ -64,8 +71,19 @@
 				</ul>
 			</div>
 		</header>
+		<div
+			id="loader"
+			class="opacity-100 fixed top-2/4 left-1/2 -translate-x-1/2 translate-y-1/2"
+		>
+			<i
+				class="fa-solid fa-spinner fa-spin text-[50px] content-center"
+			></i>
+		</div>
+
 		<main class="main-content-component">
 		</main>
 		<script type="module" src="./main.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 	</body>
 </html>

@@ -8,6 +8,8 @@
     align-items: center; /* Center vertically if needed */
     height: 100vh; /* Adjust height as needed */
   }
+
+
   
   .action {
     border: none;
@@ -19,7 +21,7 @@
     font-size: 16px;
     margin: 2px 2px;
     cursor: pointer;
-    background: #000000;
+    background: #870660;
     
     /* Add width or margin to center the button within the container */
     margin-left: 6.0rem;
@@ -38,6 +40,7 @@
     border-radius: 1.0rem;
     margin-top:1.0rem;
     margin-left: 1.0rem;
+    margin-bottom: 10rem;
     
   }
 
@@ -204,30 +207,23 @@
     display: block;
     opacity: 1;
 }
+
+.nr-of-tickets{
+  justify-content: left;
+  display: flex;
+  margin-left: 1rem;
+}
 .nr-tickets{
-    justify-content: center;
+    justify-content: left;
     flex-wrap: wrap;
     text-align: center;
-    margin-left:1.0rem;
     margin-right:1.0rem;
     width: 25%;
-    text-align: center;
-    
-}
-
-.btn-plus .btn-minus{
-    justify-content: right;
-    flex-wrap: wrap;
-    text-align: right;
-    background: #000000;
-    color: #fff;
-    padding: 10px 10px;
-    cursor: pointer;
-    display: inline-block;
+    text-align: center;   
 }
 
 .quantity{
-    justify-content: center;
+    justify-content: left;
     flex-wrap: wrap;
     text-align: center;
 }
@@ -239,4 +235,88 @@
   border-radius: 0.5rem;
 
 }
+
+.filter-events{
+  margin-top:3.0rem;
+  margin-bottom: 5.0rem; 
+  display: flex;
+  justify-content: center;
+}
+
+.price{
+  margin-left: 1rem;
   
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  
+}
+
+.card{
+  height:290px; 
+  width: 350px;
+  margin: 0 20px;
+  /* background: white; */
+  transition: 0.4s;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  margin-bottom: 5rem;
+  margin-top: 5rem;
+  border-radius: 1.0rem;
+  
+}
+
+.card:hover{
+  height: 600px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+}
+
+.card .img{
+  height: 200px;
+  width: 100%;
+
+}
+
+.card .img img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom:10rem;
+  
+}
+
+.card .top-text .name{
+  font-size: 25px;
+  font-weight: 600;
+  color:#000000;
+  text-align: center;
+}
+
+.card .top-text p{
+  font-size: 20px;
+  font-weight: 600;
+  color:#000000;
+  line-height: 20px;
+  text-align: center;
+}
+
+.card .details{
+  padding: 0 20px 20px 20px;
+  margin-top: 10px;
+  margin-bottom: 10rem;
+  /* background: #ddd; */
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.1s;
+  height: 500px;
+ 
+}
+
+.card:hover .details{
+  opacity: 1;
+  visibility: visible;
+  
+}
