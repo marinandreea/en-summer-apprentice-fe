@@ -9,9 +9,7 @@
     height: 100vh; /* Adjust height as needed */
   }
 
-
-  
-  .action {
+.action {
     border: none;
     color: #ffffff;
     padding: 10px 10px;
@@ -24,7 +22,7 @@
     background: #870660;
     
     /* Add width or margin to center the button within the container */
-    margin-left: 6.0rem;
+    margin-left: 6.5rem;
     margin-top: 1.0rem;
     margin-bottom: 3.0rem;
     border-radius: 8px;
@@ -222,6 +220,15 @@
     text-align: center;   
 }
 
+.nr-ticketss{
+  justify-content: left;
+  flex-wrap: wrap;
+  text-align: center;
+  margin-right:1.0rem;
+  width: 25%;
+  text-align: center;  
+}
+
 .quantity{
     justify-content: left;
     flex-wrap: wrap;
@@ -235,6 +242,7 @@
   border-radius: 0.5rem;
 
 }
+
 
 .filter-events{
   margin-top:3.0rem;
@@ -251,9 +259,7 @@
 .container{
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  
-  
+  justify-content: space-between; 
 }
 
 .card{
@@ -265,8 +271,7 @@
   box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
   margin-bottom: 5rem;
   margin-top: 5rem;
-  border-radius: 1.0rem;
-  
+  border-radius: 1.0rem; 
 }
 
 .card:hover{
@@ -317,6 +322,8 @@
 
 .card:hover .details{
   opacity: 1;
-  visibility: visible;
-  
+  visibility: visible;  
 }
+
+
+

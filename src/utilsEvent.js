@@ -25,6 +25,11 @@ export async function fetchDataFromServer(url) {
     return period;
   };
 
+  export const dateFormat = (date) =>{
+    var trimmedDate = date.split('T');
+    return trimmedDate[0];
+  };
+
   export function getEventImageSrc(name) {
     switch (name) {
       case 'Untold':
@@ -75,4 +80,20 @@ export async function fetchDataFromServer(url) {
     }
   }
 
+  export async function getTicketCategories(id) {
+  
+      const response = await fetch(`https://localhost:5001/api/TicketCategory?id=${id}`, {
+        method: 'GET',
+        headers: {
+          'Content-type': 'application/json',
+        },
+      })
+      .then((data) =>{
+        return data;
+      });
+  
+      return response;
+ 
+  }
+  
   
